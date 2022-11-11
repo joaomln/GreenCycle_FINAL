@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" th:fragment="topnav">
+    <div class="list-group list-group-flush ">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Explore</a>
+            </li>
+            <li class="nav-item">
+                <a th:if="${#request.isUserInRole('ADMIN')}" class="nav-link" href="/admin/criar-reserva">Criar
+                    Reserva</a>
+            </li>
+            <li class="nav-item">
+                <a th:if="${#request.isUserInRole('ADMIN')}" class="nav-link" href="/admin/reservas-atuais">Aluguéis</a>
+            </li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/login" th:if="${!#request.isUserInRole('ADMIN')}">Login</a>
+            </li>
+            <li class="nav-item" th:if="${#request.isUserInRole('ADMIN')}">
+                <span class="nav-link active">
+                    <span style="display: inline;"><i class='fas fa-user-circle'></i></span>
+                    <a class="nav-link" style="display: inline;" th:text="${'Olá, ' + #request.getRemoteUser()}"></a>
+                </span>
+            </li>
+            <li class="nav-item" th:if="${#request.isUserInRole('ADMIN')}">
+                <a class="nav-link" href="/logout"
+                    onclick="return confirm('Tem certeza?\nTodo o progresso não salvo será perdido!');">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
