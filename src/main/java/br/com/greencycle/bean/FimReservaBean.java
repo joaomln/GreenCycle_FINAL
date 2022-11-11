@@ -11,13 +11,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-/**
- * A class used as a form backing bean when finishing an rental.
- * This class has some defined validation constraints, because when finishing a
- * rental, these must be validated.
- * When issuing a rental (creating it) these fields have to be set to null,
- * thus, the entity class does not have this validation.
- */
 @Getter
 @Setter
 @NoArgsConstructor
